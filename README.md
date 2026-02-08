@@ -1,1 +1,1 @@
-# odin-graphic-notepad
+The project implements a graphic notebook with the ability to change the pixel density.
