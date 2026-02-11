@@ -38,6 +38,12 @@ body, html {
                 width: 900px;
                 height: 900px;
                 outline: 2px red solid;
+                display: flex;
+                flex-wrap: wrap;
+
+                .one-pixel {
+                    outline: 1px solid green;
+                }
             }
             }
 
