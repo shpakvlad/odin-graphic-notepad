@@ -4,7 +4,42 @@
     box-sizing: border-box;
 }
 
+body, html {
+    min-height: 100vh;
+}
     .wrapper {
+        display: flex;
+        height: 100vh;
+
+
+        .panel-one {
+            padding: 20px;
+            width: 150px;
+            height: 100%;
+            flex-shrink: 3;
+            display: flex;
+            flex-direction: column;
+
+            .tools-panel {
+                margin-top: auto;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .panel-two {
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            flex-shrink: 1;
+            display: flex;
+
+            .graphic {
+                width: 900px;
+                height: 900px;
+                outline: 2px red solid;
+            }
+            }
 
 
 }
