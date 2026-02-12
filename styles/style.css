@@ -173,3 +173,14 @@ body, html {
         }
     }
 }
+
+footer {
+    width: 400px;
+    display: flex;
+    justify-content: flex-end;
+
+    .copyright {
+        margin-top: auto;
+        margin-right: 20px;
+    }
+}
