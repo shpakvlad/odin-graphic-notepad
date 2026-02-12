@@ -4,6 +4,7 @@ graphicPlate.addEventListener('dragstart', (e) => {
     e.preventDefault();
 });
 
+
 for (let i = 0; i < 8100; i++) {
     let newDiv = document.createElement("div");
 
@@ -25,3 +26,5 @@ for (let i = 0; i < 8100; i++) {
 
     graphicPlate.insertAdjacentElement("afterbegin", newDiv);
 }
+
+
