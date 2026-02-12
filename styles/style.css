@@ -7,6 +7,7 @@
 
 body, html {
     min-height: 100vh;
+    background-color: lightskyblue;
 }
 
 .wrapper {
@@ -100,6 +101,7 @@ body, html {
                 outline: 1px solid black;
                 text-align: center;
                 line-height: 23px;
+                background-color: white;
             }
         }
 
@@ -167,8 +169,7 @@ body, html {
             outline: 2px red solid;
             display: flex;
             flex-wrap: wrap;
+            background-color: white;
         }
     }
-
-
 }
