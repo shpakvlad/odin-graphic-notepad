@@ -1,7 +1,11 @@
+document.addEventListener('DOMContentLoaded', () => {
+    makeCanvas(10);
+});
+
 
 let currentColor = "";
 
-let graphicPlate = document.querySelector(".graphic");  // turn off drug and drop
+let graphicPlate = document.querySelector(".graphic-canvas");  // turn off drug and drop
 graphicPlate.addEventListener('dragstart', (e) => {
     e.preventDefault();
 });
@@ -15,30 +19,40 @@ toolPanel.addEventListener('click', (e) => {    //change color brush
     e.preventDefault();
 });
 
+let inputSize = document.querySelector('.change-size-panel input');
+
 let clearButton = document.querySelector(".clear-button");
 clearButton.addEventListener('click', (e) => {
 
+    graphicPlate.innerHTML = ""; //clear old canvas
+
+    makeCanvas(inputSize.value);
 });
 
 //make the canvas
-for (let i = 0; i < 8100; i++) {
-    let newDiv = document.createElement("div");
+function makeCanvas(size) {
 
-    newDiv.classList.add("one-pixel");
-    newDiv.style.width = (900 / 90) + "px";
-    newDiv.style.height = (900 / 90) + "px";
+    let quantityPixels = size * size;
 
-    newDiv.addEventListener('mouseenter', (e) => {
-        if (e.buttons === 1) {
-         e.target.style.backgroundColor = currentColor;
-        }
-    })
+    for (let i = 0; i < quantityPixels; i++) {
+        let newDiv = document.createElement("div");
 
-    newDiv.addEventListener('mousedown', (e) => {
+        newDiv.classList.add("one-pixel");
+        newDiv.style.width = (900 / size) + "px";
+        newDiv.style.height = (900 / size) + "px";
+
+        newDiv.addEventListener('mouseenter', (e) => {
+            if (e.buttons === 1) {
+                e.target.style.backgroundColor = currentColor;
+            }
+        })
+
+        newDiv.addEventListener('mousedown', (e) => {
             e.target.style.backgroundColor = currentColor;
-    });
+        });
 
-    graphicPlate.insertAdjacentElement("afterbegin", newDiv); //insert dot to the canvas
+        graphicPlate.insertAdjacentElement("afterbegin", newDiv); //insert dot to the canvas
+    }
 }
 
 

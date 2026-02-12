@@ -44,7 +44,7 @@ body, html {
                 cursor: pointer;
 
                 &:hover {
-                    scale: 1.2;
+                    scale: 1.1;
                     border: 2px solid black;
                 }
             }
@@ -89,20 +89,53 @@ body, html {
         }
 
         .additional-panel {
-            margin-top: 20px;
-            padding: 15px;
-            text-align: center;
-            color: white;
-            background-color: red;
-            font-size: 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.4s;
+            display: flex;
+            flex-direction: column;
 
-            &:hover {
-                background-color: darkred;
+            .clear-button {
+                margin-top: 20px;
+                padding: 15px;
+                text-align: center;
+                color: white;
+                background-color: red;
+                font-size: 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: scale 0.4s;
+
+                &:hover {
+                    scale: 1.1;
+                }
             }
 
+            .change-size-panel {
+                margin-top: 20px;
+
+                label {
+                    font-size: 20px;
+                }
+
+                input {
+                    font-size: 20px;
+                    width: 60px;
+                }
+
+                .change-size-button {
+                    margin-top: 20px;
+                    padding: 15px;
+                    text-align: center;
+                    color: white;
+                    background-color: green;
+                    font-size: 20px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: scale 0.4s;
+
+                    &:hover {
+                        scale: 1.1;
+                    }
+                }
+            }
         }
     }
 
@@ -113,7 +146,7 @@ body, html {
         flex-shrink: 1;
         display: flex;
 
-        .graphic {
+        .graphic-canvas {
             width: 900px;
             height: 900px;
             outline: 2px red solid;
