@@ -15,6 +15,11 @@ toolPanel.addEventListener('click', (e) => {    //change color brush
     e.preventDefault();
 });
 
+let clearButton = document.querySelector(".clear-button");
+clearButton.addEventListener('click', (e) => {
+
+});
+
 //make the canvas
 for (let i = 0; i < 8100; i++) {
     let newDiv = document.createElement("div");
