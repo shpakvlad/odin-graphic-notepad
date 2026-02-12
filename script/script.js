@@ -1,31 +1,32 @@
+let currentColor = "";
+
+//after content loaded, make canvas
 document.addEventListener('DOMContentLoaded', () => {
     makeCanvas(10);
 });
 
-
-let currentColor = "";
-
-let graphicPlate = document.querySelector(".graphic-canvas");  // turn off drug and drop
+// turn off drug and drop
+let graphicPlate = document.querySelector(".graphic-canvas");
 graphicPlate.addEventListener('dragstart', (e) => {
     e.preventDefault();
 });
 
+//change color brush
 let toolPanel = document.querySelector(".tools-panel");
-
-toolPanel.addEventListener('click', (e) => {    //change color brush
+toolPanel.addEventListener('click', (e) => {
     if (currentColor !== undefined) {
         currentColor = e.target.dataset.color;
     }
     e.preventDefault();
 });
 
-let inputSize = document.querySelector('.change-size-panel input');
 
+//clear and change size
+let inputSize = document.querySelector('.change-size-panel input');
 let clearButton = document.querySelector(".clear-button");
 clearButton.addEventListener('click', (e) => {
 
     graphicPlate.innerHTML = ""; //clear old canvas
-
     makeCanvas(inputSize.value);
 });
 
