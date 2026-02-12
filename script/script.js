@@ -13,7 +13,6 @@ graphicPlate.addEventListener('dragstart', (e) => {
 
 //change color brush
 let currentColorPanel = document.querySelector(".current-color");
-
 let toolPanel = document.querySelector(".tools-panel");
 toolPanel.addEventListener('click', (e) => {
     if (currentColor !== undefined) {
@@ -22,7 +21,6 @@ toolPanel.addEventListener('click', (e) => {
     }
     e.preventDefault();
 });
-
 
 //clear and change size
 let inputSize = document.querySelector('.change-size-panel input');
@@ -36,26 +34,31 @@ clearButton.addEventListener('click', (e) => {
 //make the canvas
 function makeCanvas(size) {
 
-    let quantityPixels = size * size;
+    if (size >= 10 && size <= 90) {
 
-    for (let i = 0; i < quantityPixels; i++) {
-        let newDiv = document.createElement("div");
+        let quantityPixels = size * size;
 
-        newDiv.classList.add("one-pixel");
-        newDiv.style.width = (900 / size) + "px";
-        newDiv.style.height = (900 / size) + "px";
+        for (let i = 0; i < quantityPixels; i++) {
+            let newDiv = document.createElement("div");
 
-        newDiv.addEventListener('mouseenter', (e) => {
-            if (e.buttons === 1) {
+            newDiv.classList.add("one-pixel");
+            newDiv.style.width = (900 / size) + "px";
+            newDiv.style.height = (900 / size) + "px";
+
+            newDiv.addEventListener('mouseenter', (e) => {
+                if (e.buttons === 1) {
+                    e.target.style.backgroundColor = currentColor;
+                }
+            })
+
+            newDiv.addEventListener('mousedown', (e) => {
                 e.target.style.backgroundColor = currentColor;
-            }
-        })
+            });
 
-        newDiv.addEventListener('mousedown', (e) => {
-            e.target.style.backgroundColor = currentColor;
-        });
-
-        graphicPlate.insertAdjacentElement("afterbegin", newDiv); //insert dot to the canvas
+            graphicPlate.insertAdjacentElement("afterbegin", newDiv); //insert dot to the canvas
+        }
+    } else {
+        alert("Size must be between 10 to 90!");
     }
 }
 
