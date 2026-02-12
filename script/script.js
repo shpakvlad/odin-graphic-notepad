@@ -1,4 +1,4 @@
-let currentColor = "";
+let currentColor = "black";
 
 //after content loaded, make canvas
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,10 +12,13 @@ graphicPlate.addEventListener('dragstart', (e) => {
 });
 
 //change color brush
+let currentColorPanel = document.querySelector(".current-color");
+
 let toolPanel = document.querySelector(".tools-panel");
 toolPanel.addEventListener('click', (e) => {
     if (currentColor !== undefined) {
         currentColor = e.target.dataset.color;
+        currentColorPanel.style.backgroundColor = currentColor;
     }
     e.preventDefault();
 });
